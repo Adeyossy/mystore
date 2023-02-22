@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --mystore-primary-color: #0aff7f;
+  --mystore-primary-color-contrast: #058040;
+  --mystore-accent-color: #f52a2a;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+  font-family: 'Jost', Arial, Helvetica, sans-serif;
+}
+
+p, input {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+
