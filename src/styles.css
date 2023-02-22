@@ -13,4 +13,6 @@ p, input {
   color: rgba(0, 0, 0, 0.9);
 }
 
-
+.mystore-header{
+  font-size: 24pt;
+}
