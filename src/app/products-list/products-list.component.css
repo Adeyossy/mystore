@@ -1,0 +1,3 @@
+.mystore-products-list > *{
+  margin-bottom: var(--mystore-unit-dimen);
+}

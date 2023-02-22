@@ -2,6 +2,8 @@
   --mystore-primary-color: #0aff7f;
   --mystore-primary-color-contrast: #058040;
   --mystore-accent-color: #f52a2a;
+  --mystore-unit-dimen: 4vw;
+  --mystore-off-white: rgb(242, 242, 242);
 }
 
 h1, h2, h3, h4, h5, h6, label {
@@ -10,9 +12,35 @@ h1, h2, h3, h4, h5, h6, label {
 
 p, input {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 1);
+  font-size: 16px;
+  margin: 0;
 }
 
 .mystore-header{
-  font-size: 24pt;
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.mystore-item-summary{
+  padding: var(--mystore-unit-dimen);
+}
+
+.mystore-item-summary-description{
+  height: 5vh;
+  line-height: 2.5vh;
+}
+
+.mystore-wrappable-text{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+}
+
+.mystore-list-item{
+  background-color: var(--mystore-off-white);
+}
+
+.subtitle {
+  font-size: 12px;
 }

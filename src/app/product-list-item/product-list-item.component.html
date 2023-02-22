@@ -1,1 +1,33 @@
-<p>product-list-item works!</p>
+<div class="container-fluid p-1">
+  <div class="row g-0 mystore-list-item">
+    <div class="col-6">
+      <img src="../../assets/images/sandwich.jpg" alt="Product thumbnail" class="img-fluid">
+    </div>
+    <div class="col-6">
+      <div class="mystore-item-summary">
+        <h2 class="mystore-item-summary-title m-0 mystore-header">{{ 'Product Name' }}</h2>
+        <p class="mystore-item-summary-subtitle subtitle">Product Subtitle</p>
+        <p class="mystore-item-summary-description mystore-wrappable-text">Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Soluta unde quam distinctio perspiciatis dicta, est odio beatae modi quos, amet omnis
+          dolorum magni eum error animi, delectus exercitationem facilis ducimus.</p>
+        <br>
+        <h2 class="mystore-item-summary-price mystore-price mystore-header">{{ 299.99 | currency:'NGN':'symbol-narrow'
+          }}</h2>
+        <div class="row g-0">
+          <div class="col-6">
+            <span class="mystore-icon-small">
+              <i class="bi bi-bag-fill"></i>
+            </span>
+            <span class="subtitle">100</span>
+          </div>
+          <div class="col-6">
+            <span class="mystore-icon-small">
+              <i class="bi bi-heart-fill"></i>
+            </span>
+            <span class="subtitle">85</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
