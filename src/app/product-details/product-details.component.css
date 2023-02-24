@@ -1,0 +1,40 @@
+.mystore-product-details-spotlight {
+  height: 150vh;
+  background-image: url('../../assets/images/overlay_light.jpg'), linear-gradient(to top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
+  background-blend-mode: soft-light;
+}
+
+.mystore-product-details-backdrop {
+  height: 100%;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(30px);
+  padding: var(--mystore-unit-dimen);
+  /* background-color: var(--mystore-off-white); */
+}
+
+h1.mystore-header{
+  font-size: 18pt;
+}
+
+.mystore-product-details-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.mystore-product-details-addtocart, .mystore-product-details-quantity{
+  height: 64px;
+}
+
+.mystore-product-details-addtocart {
+  color: var(--mystore-text-color-contrast);
+  background-color: var(--mystore-primary-color-contrast);
+  border: 2px solid black;
+  font-weight: 700;
+}
+
+.mystore-product-details-quantity{}

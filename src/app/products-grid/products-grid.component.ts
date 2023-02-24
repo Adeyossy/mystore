@@ -18,7 +18,7 @@ export class ProductsGridComponent implements OnInit {
 
   showProductDetails(id: number): void {
     this.router.navigateByUrl(`/products/${id}`)
-      .catch(err => alert(`Error navigating ${err}`));
+      .catch(err => console.log(`Error navigating ${err}`));
   }
 
 }

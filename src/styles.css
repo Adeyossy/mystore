@@ -1,6 +1,8 @@
 :root {
   --mystore-primary-color: #0aff7f;
   --mystore-primary-color-contrast: #058040;
+  --mystore-text-color: black;
+  --mystore-text-color-contrast: white;
   --mystore-accent-color: #f52a2a;
   --mystore-unit-dimen: 4vw;
   --mystore-off-white: rgb(248, 248, 248);
@@ -12,14 +14,22 @@ h1, h2, h3, h4, h5, h6, label {
 
 p, input {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color: rgba(0, 0, 0, 1);
-  font-size: 16px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 18px;
   margin: 0;
+}
+
+input {
+  background-color: transparent;
+  color: var(--mystore-text-color);
+  border: 3px solid var(--mystore-primary-color-contrast);
+  font-family: 'Jost', sans-serif;
 }
 
 .mystore-header{
   font-size: 21px;
   font-weight: 900;
+  color: black;
 }
 
 .mystore-item-summary{
@@ -50,4 +60,11 @@ p, input {
 
 .subtitle {
   font-size: 12px;
+}
+
+.mystore-medium-icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  font-size: 24px;
 }
