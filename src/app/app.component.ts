@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DatabrokerService } from './databroker.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'mystore';
+
+  constructor (private databroker: DatabrokerService) {}
+
+  ngOnInit(): void {
+    
+  }
+
 }

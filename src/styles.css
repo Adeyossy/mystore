@@ -3,7 +3,7 @@
   --mystore-primary-color-contrast: #058040;
   --mystore-accent-color: #f52a2a;
   --mystore-unit-dimen: 4vw;
-  --mystore-off-white: rgb(242, 242, 242);
+  --mystore-off-white: rgb(248, 248, 248);
 }
 
 h1, h2, h3, h4, h5, h6, label {
@@ -29,16 +29,23 @@ p, input {
 .mystore-item-summary-description{
   height: 5vh;
   line-height: 2.5vh;
+  overflow: hidden;
 }
 
 .mystore-wrappable-text{
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: normal;
+  white-space: nowrap;
 }
 
-.mystore-list-item{
+.mystore-list-item, .mystore-grid-item{
   background-color: var(--mystore-off-white);
+}
+
+.mystore-list-item:hover, .mystore-grid-item:hover{
+  cursor: pointer;
+  background-color: rgba(235, 235, 235);
+  transition: background-color 200ms ease-in;
 }
 
 .subtitle {

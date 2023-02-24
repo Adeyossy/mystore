@@ -8,14 +8,9 @@ import { Product } from '../models/products';
 })
 export class ProductListItemComponent implements OnInit {
 
-  @Input() item: Product;
+  @Input() item: Product = {} as Product;
 
   constructor() {
-    this.item = {
-      name: "",
-      price: 0,
-      category: ""
-    }
   }
 
   ngOnInit(): void {

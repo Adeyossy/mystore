@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from '../models/products';
 
 @Component({
@@ -8,11 +9,16 @@ import { Product } from '../models/products';
 })
 export class ProductsGridComponent implements OnInit {
 
-  items: Product[] = [];
+  @Input() items: Product[] = [];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  showProductDetails(id: number): void {
+    this.router.navigateByUrl(`/products/${id}`)
+      .catch(err => alert(`Error navigating ${err}`));
   }
 
 }
