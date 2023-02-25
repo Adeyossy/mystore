@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DatabrokerService } from '../databroker.service';
 import { Product } from '../models/products';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { CartService } from '../cart.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-details',
@@ -14,10 +16,12 @@ export class ProductDetailsComponent implements OnInit {
   products: Product[] = [];
   quantity: number = 0;
   pairings: Product[] = [];
+  unsubscribe = new Subscription();
 
   constructor(private databroker: DatabrokerService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private cartService: CartService) {
     }
 
   ngOnInit(): void {
@@ -50,8 +54,22 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart(): void {
-    alert('Add item to cart?');
-    this.databroker.getCart()
+    // alert('Add item to cart?');
+    const order_id = this.cartService.getOrderId();
+
+    this.unsubscribe = this.databroker.addToCart({ 
+      quantity: this.quantity, 
+      orderId: order_id, 
+      productId: this.product.id 
+    }).subscribe({
+      next: newCartItem => {
+        alert(`${this.product.name} successfully added to cart`);
+        this.quantity = 0;
+        this.databroker.notifyChange(true);
+      },
+      error: (err) => console.log('Error occurred while adding to cart: ', err),
+      complete: () => this.unsubscribe.unsubscribe()
+    });
   }
 
 }
