@@ -1,5 +1,5 @@
 .mystore-product-details-spotlight {
-  height: 150vh;
+  height: 85vh;
   background-image: url('../../assets/images/overlay_light.jpg'), linear-gradient(to top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
   background-blend-mode: soft-light;
 }
@@ -23,7 +23,7 @@ h1.mystore-header{
   right: 0;
   width: 100%;
   margin: auto;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .mystore-product-details-addtocart, .mystore-product-details-quantity{
@@ -37,4 +37,14 @@ h1.mystore-header{
   font-weight: 700;
 }
 
-.mystore-product-details-quantity{}
+@media only screen and (min-width: 768px) {
+  .mystore-product-details-spotlight {
+    height: 100vh;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .mystore-product-details-spotlight {
+    height: 130vh;
+  }
+}

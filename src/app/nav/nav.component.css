@@ -1,3 +1,7 @@
 .mystore-page-name{
   vertical-align: middle;
 }
+
+.mystore-badge{
+  color: var(--mystore-accent-color);
+}

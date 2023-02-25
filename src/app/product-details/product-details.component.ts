@@ -49,4 +49,9 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
+  addToCart(): void {
+    alert('Add item to cart?');
+    this.databroker.getCart()
+  }
+
 }

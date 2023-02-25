@@ -1,31 +1,46 @@
-<div class="mystore-product-details">
-  <div class="mystore-product-details-spotlight">
-    <div class="mystore-product-details-backdrop">
-      <img src="../../assets/images/{{product.name.split(' ')[0] | lowercase}}.jpg" #img alt="{{ product.name }} image"
-        class="img-fluid">
-      <div class="mystore-product-details-details mt-4">
-        <h1 class="mystore-header mt-3 mb-0">{{product.name}}</h1>
-        <p class="mystore-product-details-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
-          unde, quasi non dolorum ullam perferendis, animi obcaecati quaerat dolores doloremque asperiores quia fuga.</p>
-        <h1 class="mystore-price mystore-header mb-5 mt-4">{{ product.price | currency:'NGN':'symbol-narrow' }}</h1>
-      </div>
-      <div class="mystore-product-details-pairings">
-        <h2 class="mystore-header">PAIRINGS</h2>
-        <p class="mystore-product-details-pairing-description">Pair your {{product.name}} with these items on our menu.</p>
-        <div class="row g-0">
-          <div class="col-6 p-1" *ngFor="let item of pairings">
-            <img src="../../assets/images/{{item.name.split(' ')[0] | lowercase}}.jpg" alt="{{item.name}} image" class="img-fluid" (click)="goToProduct(item.id)">
+<div class="container-fluid p-0">
+  <div class="row g-0">
+    <div class="offset-md-1 col-md-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+      <div class="mystore-product-details">
+        <div class="mystore-product-details-spotlight">
+          <div class="mystore-product-details-backdrop">
+            <img src="../../assets/images/{{product.name.split(' ')[0] | lowercase}}.jpg" #img
+              alt="{{ product.name }} image" class="img-fluid">
+            <div class="mystore-product-details-details mt-4">
+              <h1 class="mystore-header mt-3 mb-0">{{product.name}}</h1>
+              <p class="mystore-product-details-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Neque
+                unde, quasi non dolorum ullam perferendis, animi obcaecati quaerat dolores doloremque asperiores quia
+                fuga.
+              </p>
+              <h1 class="mystore-price mystore-header mb-5 mt-4">{{ product.price | currency:'NGN':'symbol-narrow' }}
+              </h1>
+            </div>
+          </div>
+          <div class="mystore-product-details-pairings mt-5 p-3 pb-5">
+            <h2 class="mystore-header">PAIRINGS</h2>
+            <p class="mystore-product-details-pairing-description">Pair your {{product.name}} with these items on our
+              menu.
+            </p>
+            <div class="row g-0">
+              <div class="col-6 p-1" *ngFor="let item of pairings">
+                <img src="../../assets/images/{{item.name.split(' ')[0] | lowercase}}.jpg" alt="{{item.name}} image"
+                  class="img-fluid" (click)="goToProduct(item.id)">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mystore-product-details-buttons row g-0">
+          <div class="col-8 p-1">
+            <button class="mystore-product-details-addtocart w-100 p-2" [disabled]="!quantity" (click)="addToCart()">
+              ADD TO CART ({{ product.price * quantity | currency:'NGN':'symbol-narrow' }})</button>
+          </div>
+          <div class="col-4 p-1">
+            <input type="number" name="quantity" class="mystore-product-details-quantity w-100 p-2" min="1" max="100"
+              [(ngModel)]="quantity" placeholder="quantity" required>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="mystore-product-details-buttons row g-0">
-    <div class="col-8 p-1">
-      <button class="mystore-product-details-addtocart w-100 p-2" [disabled]="!quantity">ADD TO CART ({{ product.price * quantity | currency:'NGN':'symbol-narrow' }})</button>
-    </div>
-    <div class="col-4 p-1">
-      <input type="number" name="quantity" class="mystore-product-details-quantity w-100 p-2" min="1" max="100" [(ngModel)]="quantity" required>
     </div>
   </div>
 </div>
