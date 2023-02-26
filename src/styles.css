@@ -6,6 +6,7 @@
   --mystore-accent-color: #f52a2a;
   --mystore-unit-dimen: 4vw;
   --mystore-off-white: rgb(248, 248, 248);
+  --mystore-overlay-background: white;
 }
 
 h1, h2, h3, h4, h5, h6, label {
@@ -20,10 +21,32 @@ p, input {
 }
 
 input {
+  height: 48px;
   background-color: transparent;
   color: var(--mystore-text-color);
   border: 3px solid var(--mystore-primary-color-contrast);
   font-family: 'Jost', sans-serif;
+  padding: 4px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+button {
+  /* height: 32px; */
+  padding: 8px;
+  color: var(--mystore-text-color-contrast);
+  background-color: var(--mystore-primary-color-contrast);
+  border: none;
+  transition: background-color 200ms linear, transform 200ms linear, opacity 200ms linear;
+}
+
+button:hover{
+  background-color: var(--mystore-accent-color);
+}
+
+button:active{
+  transform: scale(0.95);
+  opacity: 0.8;
 }
 
 .mystore-header{
@@ -69,6 +92,7 @@ input {
   font-size: 24px;
   vertical-align: top;
   line-height: 1;
+  color: black;
 }
 
 :disabled{
@@ -77,4 +101,5 @@ input {
 
 :disabled:hover{
   cursor: not-allowed;
+  background-color: rgba(0, 0, 0, 0.8);
 }

@@ -1,0 +1,35 @@
+<div class="container-fluid p-0">
+  <div class="row g-0">
+    <div class="offset-md-1 col-md-10 offset-lg-2 col-lg-8">
+      <app-products-list (emitDelete)="deleteCartItem($event)" [items]="cartItems"></app-products-list>
+      <div class="mystore-cart-checkout">
+        <div *ngIf="!hasCheckedOut" class="mystore-cart-total p-3">
+          <h1 class="mystore-header">Order Payment</h1>
+          <hr>
+          <h1 class="mystore-total-price mystore-header">TOTAL: {{ total | currency:'NGN':'symbol-narrow' }}</h1>
+          <hr>
+          <button (click)="handleCheckout()" class="mystore-button-checkout">{{hasCheckedOut ? 'PAY' : 'PROCEED'}}</button>
+        </div>
+        <div *ngIf="hasCheckedOut" class="mystore-checkout-payment">
+          <div class="mystore-checkout-payment-details">
+            <h1 class="mystore-header">PAYMENT DETAILS</h1>
+            <form #userform="ngForm" action="/orders/place" novalidate>
+              <input type="text" ngModel minlength="3" maxlength="20" placeholder="First Name" name="firstname" required>
+              <input type="text" ngModel minlength="3" maxlength="20" placeholder="Last Name" name="lastname" required>
+              <input type="text" ngModel minlength="3" maxlength="20" placeholder="Address" name="address" required>
+            </form>
+            <hr>
+            <h1 class="mystore-header">Card Details</h1>
+            <form #cardform="ngForm" action="/orders/place">
+              <input type="text" ngModel minlength="5" maxlength="50" placeholder="Card Name" name="cardname" required>
+              <input type="number" ngModel placeholder="Card Number" name="cardnumber" required>
+              <input type="text" ngModel minlength="5" maxlength="5" placeholder="MM/YY" name="expiry" pattern="\d\d\/\d\d" required>
+              <input type="number" ngModel placeholder="CVV" name="cvv" required>
+            </form>
+          </div>
+          <button (click)="handlePayment(userform, cardform)" class="mystore-button-checkout" [disabled]="cardform.invalid || userform.invalid">PAY</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
 <div class="mystore-products-list">
   <app-product-list-item *ngFor="let item of items"
-  [item]="item"></app-product-list-item>
+  [item]="item" (emitDelete)="passDeleteToParent($event)"></app-product-list-item>
 </div>

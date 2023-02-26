@@ -1,32 +1,34 @@
 <div class="container-fluid p-1">
   <div class="row g-0 mystore-list-item">
     <div class="col-6">
-      <img src="../../assets/images/sandwich.jpg" alt="Product thumbnail" class="img-fluid">
+      <img src="../../assets/images/{{item.name.split(' ')[0] | lowercase}}.jpg" alt="Product thumbnail: {{item.name}}" class="img-fluid">
     </div>
     <div class="col-6">
       <div class="mystore-item-summary">
         <h2 class="mystore-item-summary-title m-0 mystore-header mystore-wrappable-text">{{ item.name }}</h2>
-        <p class="mystore-item-summary-subtitle subtitle">Product Subtitle</p>
-        <p class="mystore-item-summary-description">Lorem ipsum dolor sit amet consectetur
+        <!-- <p class="mystore-item-summary-subtitle subtitle">Product Subtitle</p> -->
+        <!-- <p class="mystore-wrappable-text text-small">Lorem ipsum dolor sit amet consectetur
           adipisicing elit. Soluta unde quam distinctio perspiciatis dicta, est odio beatae modi quos, amet omnis
-          dolorum magni eum error animi, delectus exercitationem facilis ducimus.</p>
-        <br>
-        <h2 class="mystore-item-summary-price mystore-price mystore-header">{{ 299.99 | currency:'NGN':'symbol-narrow'
-          }}</h2>
+          dolorum magni eum error animi, delectus exercitationem facilis ducimus.</p> -->
         <div class="row g-0">
           <div class="col-6">
             <span class="mystore-icon-small">
               <i class="bi bi-bag-fill"></i>
             </span>
-            <span class="subtitle">100</span>
+            <span class="subtitle mx-1"><strong>QTY: {{item.quantity}}</strong></span>
           </div>
           <div class="col-6">
             <span class="mystore-icon-small">
-              <i class="bi bi-heart-fill"></i>
+              <i class="bi bi-tag-fill"></i>
             </span>
-            <span class="subtitle">85</span>
+            <span class="subtitle mx-1">{{ item.price | currency:'NGN':'symbol-narrow'}}</span>
           </div>
         </div>
+        <hr class="mt-2 mb-2">
+        <h2 class="mystore-item-summary-price mystore-price mystore-header mb-2">{{ item.price * item.quantity | currency:'NGN':'symbol-narrow'
+        }}</h2>
+        <hr class="mt-2 mb-2">
+        <button (click)="deleteItem()" class="mystore-button mystore-delete-cart-item w-100">DELETE</button>
       </div>
     </div>
   </div>

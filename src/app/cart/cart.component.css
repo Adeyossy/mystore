@@ -1,0 +1,20 @@
+.mystore-cart-checkout{
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  margin: auto;
+  background-color: var(--mystore-off-white);
+  padding: 16px 8px 64px 4px;
+  max-height: 50vh;
+  overflow: auto;
+}
+
+button.mystore-button-checkout {
+  height: 64px;
+  width: 97%;
+  font-weight: 700;
+  border-width: 2px;
+  position: fixed;
+  left: 0; bottom: 8px; right: 0;
+  margin: auto;
+  z-index: 3;
+}

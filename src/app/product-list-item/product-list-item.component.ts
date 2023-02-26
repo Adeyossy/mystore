@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Cart, OrderProduct } from '../models/order';
 import { Product } from '../models/products';
 
 @Component({
@@ -8,12 +9,18 @@ import { Product } from '../models/products';
 })
 export class ProductListItemComponent implements OnInit {
 
-  @Input() item: Product = {} as Product;
+  @Input() item: Cart = {} as Cart;
+  @Output() emitDelete = new EventEmitter<number>();
 
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  deleteItem(): void {
+    console.log('delete button clicked');
+    this.emitDelete.emit(this.item.id);
   }
 
 }

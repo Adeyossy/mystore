@@ -10,3 +10,11 @@ export interface OrderProduct {
   productId: number,
   quantity: number
 }
+
+export interface Cart extends OrderProduct {
+  user_id: number;
+  order_status: string;
+  name: string;
+  price: number;
+  category: string;
+}
