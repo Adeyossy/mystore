@@ -13,6 +13,9 @@ import { ProductsGridComponent } from './products-grid/products-grid.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,20 @@ import { CartComponent } from './cart/cart.component';
     ProductsGridComponent,
     ProductsComponent,
     ProductDetailsComponent,
-    CartComponent
+    CartComponent,
+    FeedbackComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => null
+      }
+    })
   ],
   providers: [{provide: DEFAULT_CURRENCY_CODE, useValue:'NGN'}],
   bootstrap: [AppComponent]

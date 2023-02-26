@@ -1,0 +1,11 @@
+<div class="container-fluid mt-5">
+  <div class="row g-0">
+    <div class="offset-md-1 col-md-10 offset-lg-2 col-lg-8">
+      <h1 class="mystore-header">SIGN UP / LOGIN</h1>
+      <p class="mb-3">This is a quick way to automatically login if you have an account or signup if you do not.</p>
+      <input type="text" minlength="3" [(ngModel)]="user.username" placeholder="username" name="username" required>
+      <input type="password" minlength="8" [(ngModel)]="user.password" placeholder="username" name="username" required>
+      <button class="mystore-button w-100" (click)="performAuth()">SUBMIT</button>
+    </div>
+  </div>
+</div>

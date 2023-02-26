@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, DoCheck } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DatabrokerService } from '../databroker.service';
 import { Cart, Order, OrderProduct } from '../models/order';
@@ -20,7 +21,8 @@ export class CartComponent implements OnInit, DoCheck, OnDestroy {
   user: User = {} as User;
   card: Card = {} as Card;
 
-  constructor(private databroker: DatabrokerService) { }
+  constructor(private databroker: DatabrokerService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.unsubscribe = this.databroker.getCart().subscribe({
@@ -69,5 +71,7 @@ export class CartComponent implements OnInit, DoCheck, OnDestroy {
     this.card.cardnumber = cardform.controls['cardnumber'].value;
     this.card.expiry = cardform.controls['expiry'].value;
     this.card.cvv = cardform.controls['cvv'].value;
+
+    this.router.navigateByUrl('/confirmation');
   }
 }

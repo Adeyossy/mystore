@@ -10,17 +10,21 @@ export class CartService {
   orderId: number = 0;
 
   constructor(private databroker: DatabrokerService) {
-    databroker.getCart().subscribe({
+  }
+
+  initCart(): void{
+    this.databroker.getCart().subscribe({
       next: cart => {
         this.cartItems = cart;
         this.orderId = cart.length ? cart[0].order_id : 0;
+        this.getOrderId();
       },
       error: error => console.log(`An error occurred: `, error)
     });
   }
 
   getOrderId(): number {
-    if (this.cartItems.length == 0) {
+    if (this.cartItems.length === 0) {
       // console.log('first was called');
       this.databroker.createCart().subscribe({
         next: newOrder => {

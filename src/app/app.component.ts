@@ -15,7 +15,8 @@ export class AppComponent implements OnInit, DoCheck, OnDestroy {
   constructor (private databroker: DatabrokerService) {}
 
   ngOnInit(): void {
-    this.checkCartChanges();
+    // if(!this.databroker.user_id) {}
+    // this.checkCartChanges();
   }
 
   ngDoCheck(): void {
