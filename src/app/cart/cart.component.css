@@ -18,3 +18,11 @@ button.mystore-button-checkout {
   margin: auto;
   z-index: 3;
 }
+
+input:invalid + p.subtitle {
+  color: var(--mystore-accent-color);
+}
+
+input:valid + p.subtitle {
+  color: var(--mystore-primary-color-contrast);
+}

@@ -29,7 +29,11 @@ export class CartComponent implements OnInit, DoCheck, OnDestroy {
       next: cartItems => {
         this.cartItems = cartItems;
       },
-      error: err => console.log('An error occurred => ', err)
+      error: err => {
+        console.log('An error occurred => ', err);
+        alert('You need to sign in to view this page');
+        this.router.navigateByUrl('/');
+      }
     });
   }
 
@@ -60,6 +64,8 @@ export class CartComponent implements OnInit, DoCheck, OnDestroy {
   handleCheckout(): void {
     this.hasCheckedOut = true;
   }
+
+  validateUserForm(): void{}
 
   handlePayment(userform: NgForm, cardform: NgForm): void {
     // console.log('user controls => ', userform.controls);

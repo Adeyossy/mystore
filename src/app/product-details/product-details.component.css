@@ -1,5 +1,5 @@
 .mystore-product-details-spotlight {
-  height: 85vh;
+  height: 740px;
   background-image: url('../../assets/images/overlay_light.jpg'), linear-gradient(to top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
   background-blend-mode: soft-light;
 }
@@ -43,8 +43,20 @@ h1.mystore-header{
   }
 }
 
+@media only screen and (max-width: 768px) and (max-height: 760px) {
+  .mystore-product-details-spotlight {
+    height: 160vh;
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .mystore-product-details-spotlight {
     height: 130vh;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-height: 500px) {
+  .mystore-product-details-spotlight {
+    height: 250vh;
   }
 }

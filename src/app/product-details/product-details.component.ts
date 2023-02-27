@@ -67,7 +67,11 @@ export class ProductDetailsComponent implements OnInit {
         this.quantity = 0;
         this.databroker.notifyChange(true);
       },
-      error: (err) => console.log('Error occurred while adding to cart: ', err),
+      error: (err) => {
+        console.log('Error occurred while adding to cart: ', err);
+        alert('You must be logged in to add item to cart');
+        this.router.navigateByUrl('/');
+      },
       complete: () => this.unsubscribe.unsubscribe()
     });
   }

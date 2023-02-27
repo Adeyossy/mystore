@@ -36,7 +36,7 @@
               ADD TO CART ({{ product.price * quantity | currency:'NGN':'symbol-narrow' }})</button>
           </div>
           <div class="col-4 p-1">
-            <input type="number" name="quantity" class="mystore-product-details-quantity w-100 p-2" min="1" max="100"
+            <input type="number" name="quantity" class="mystore-product-details-quantity w-100 p-2 mt-0" min="1" max="100"
               [(ngModel)]="quantity" placeholder="quantity" required>
           </div>
         </div>

@@ -14,17 +14,24 @@
           <div class="mystore-checkout-payment-details">
             <h1 class="mystore-header">PAYMENT DETAILS</h1>
             <form #userform="ngForm" action="/orders/place" novalidate>
-              <input type="text" ngModel minlength="3" maxlength="20" placeholder="First Name" name="firstname" required>
-              <input type="text" ngModel minlength="3" maxlength="20" placeholder="Last Name" name="lastname" required>
-              <input type="text" ngModel minlength="3" maxlength="20" placeholder="Address" name="address" required>
+              <input type="text" #firstname="ngModel" [ngModel]="user.firstname" (ngModelChange)="user.firstname = $event" minlength="3" maxlength="20" placeholder="First Name" name="firstname" required>
+              <p class="subtitle">{{ firstname.invalid ? 'First Name is invalid' : 'Correct' }}</p>
+              <input type="text" #lastname="ngModel" [ngModel]="user.lastname" (ngModelChange)="user.lastname = $event" minlength="3" maxlength="20" placeholder="Last Name" name="lastname" required>
+              <p class="subtitle">{{ lastname.invalid ? 'Last Name is invalid' : 'Correct' }}</p>
+              <input type="text" #address="ngModel" [ngModel]="user.address" (ngModelChange)="user.address = $event" minlength="3" maxlength="20" placeholder="Address" name="address" required>
+              <p class="subtitle">{{ address.invalid ? 'Address is invalid' : 'Correct' }}</p>
             </form>
             <hr>
             <h1 class="mystore-header">Card Details</h1>
             <form #cardform="ngForm" action="/orders/place">
-              <input type="text" ngModel minlength="5" maxlength="50" placeholder="Card Name" name="cardname" required>
-              <input type="number" ngModel placeholder="Card Number" name="cardnumber" required>
-              <input type="text" ngModel minlength="5" maxlength="5" placeholder="MM/YY" name="expiry" pattern="\d\d\/\d\d" required>
-              <input type="number" ngModel placeholder="CVV" name="cvv" required>
+              <input type="text" #cardname="ngModel" [ngModel]="card.cardname" (ngModelChange)="card.cardname = $event" minlength="5" maxlength="50" placeholder="Card Name" name="cardname" required>
+              <p class="subtitle">{{ cardname.invalid ? 'Name of Card holder is invalid' : 'Correct' }}</p>
+              <input type="number" #cardnumber="ngModel" [ngModel]="card.cardnumber" (ngModelChange)="card.cardnumber = $event" [maxlength]="13" placeholder="Card Number" name="cardnumber" required>
+              <p class="subtitle">{{ cardnumber.invalid ? 'Card Number is invalid' : 'Correct' }}</p>
+              <input type="text" #expiry="ngModel" [ngModel]="card.expiry" (ngModelChange)="card.expiry = $event" minlength="5" maxlength="5" placeholder="MM/YY" name="expiry" pattern="\d\d\/\d\d" required>
+              <p class="subtitle">{{ expiry.invalid ? 'Format of expiry date is invalid' : 'Correct' }}</p>
+              <input type="number" #cvv="ngModel" [ngModel]="card.cvv" (ngModelChange)="card.cvv = $event" [maxlength]="13" placeholder="CVV" name="cvv" required>
+              <p class="subtitle">{{ cvv.invalid ? 'CVV is invalid' : 'Correct' }}</p>
             </form>
           </div>
           <button (click)="handlePayment(userform, cardform)" class="mystore-button-checkout" [disabled]="cardform.invalid || userform.invalid">PAY</button>
